@@ -1,28 +1,54 @@
 #lang scribble/manual
 @(require json racket/string racket/list scribble/core scribble/html-properties)
-@title{Prob-bench: a language-agnostic benchmarking suite for probabilistic programming languages}
-
+@title{Prob-bench}
 
 @(define info (with-input-from-file "info.json"
                 (lambda () (read-json))))
-
-@(define (all-tags)
-   (sort (remove-duplicates (append-map (lambda (tags) tags) (hash-values info)))
-         string<?))
 
 @(define (raw-elem tag . attrs)
    (lambda pre-content
      (element (style #f (list (alt-tag tag) (attributes attrs))) pre-content)))
 
-@(define (tag-checkbox tag)
-   (list ((raw-elem "input" '(type . "checkbox") '(class . "tagfilter") (cons 'data-tag tag)) "")
-         ((raw-elem "label") tag)
-         " "))
+@(define (all-tags)
+   (sort (remove-duplicates (append-map (lambda (tags) tags) (hash-values info)))
+         string<?))
+
+@(define (language-tag? tag) (string-prefix? tag "language:"))
+@(define (language-tags) (filter language-tag? (all-tags)))
+@(define (feature-tags) (filter (lambda (tag) (not (language-tag? tag))) (all-tags)))
+
+@(define (tag-display-name tag)
+   (if (language-tag? tag) (substring tag (string-length "language:")) tag))
+
+@(define (tag-chip tag)
+   ((raw-elem "label" '(class . "chip"))
+    (list ((raw-elem "input" '(type . "checkbox") '(class . "tagfilter") (cons 'data-tag tag)) "")
+          ((raw-elem "span" '(class . "chip-label")) (tag-display-name tag)))))
+
+@(define (tag-badge tag)
+   ((raw-elem "span" '(class . "tag-badge")) (tag-display-name tag)))
+
+@(define (download-icon)
+   ((raw-elem "svg" '(viewBox . "0 0 24 24") '(width . "16") '(height . "16")
+              '(fill . "none") '(stroke . "currentColor") '(stroke-width . "2")
+              '(stroke-linecap . "round") '(stroke-linejoin . "round"))
+    (list ((raw-elem "path" '(d . "M12 3v12")) "")
+          ((raw-elem "path" '(d . "M7 10l5 5 5-5")) "")
+          ((raw-elem "path" '(d . "M5 19h14")) ""))))
+
+@(define (download-link path)
+   ((raw-elem "a" '(class . "benchmark-download") (cons 'href (path->string path)) '(download . "")
+              '(aria-label . "Download") '(title . "Download"))
+    (download-icon)))
 
 @(define (benchmark-item path tags)
    (define tags-str (string-join tags " "))
-   (item ((raw-elem "span" '(class . "benchmark-item") (cons 'data-tags tags-str))
-          (string-append (path->string path) ": " tags-str))))
+   (item
+    ((raw-elem "span" '(class . "benchmark-item") (cons 'data-tags tags-str))
+     (list ((raw-elem "span" '(class . "benchmark-info"))
+            (list ((raw-elem "span" '(class . "benchmark-path")) (path->string path))
+                  ((raw-elem "span" '(class . "benchmark-tags")) (map tag-badge tags))))
+           (download-link path)))))
 
 @(define (all-benchmarking-paths)
   (for/list ([path (in-directory "benchmark/small")]
@@ -30,10 +56,17 @@
     (define tags (hash-ref info (string->symbol (path->string path)) '()))
     (benchmark-item path tags)))
 
-@bold{Filter by tag:}
-
-@(append-map tag-checkbox (all-tags))
-
-@(apply itemlist (all-benchmarking-paths))
-
-@((raw-elem "script" '(src . "filter.js")) "")
+@(list
+  ((raw-elem "link" '(rel . "stylesheet") '(href . "style.css")) "")
+  ((raw-elem "div" '(class . "hero"))
+   (list ((raw-elem "p" '(class . "eyebrow")) "Roulette Research")
+         ((raw-elem "p" '(class . "subtitle"))
+          "A language-agnostic benchmarking suite for probabilistic programming languages.")))
+  ((raw-elem "div" '(class . "filter-panel"))
+   (list ((raw-elem "span" '(class . "filter-label")) "Filter by language")
+         ((raw-elem "div" '(class . "chip-row")) (map tag-chip (language-tags)))))
+  ((raw-elem "div" '(class . "filter-panel"))
+   (list ((raw-elem "span" '(class . "filter-label")) "Filter by tag")
+         ((raw-elem "div" '(class . "chip-row")) (map tag-chip (feature-tags)))))
+  (apply itemlist #:style "benchmark-list" (all-benchmarking-paths))
+  ((raw-elem "script" '(src . "filter.js")) ""))

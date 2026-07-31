@@ -1,10 +1,10 @@
 {
-  "benchmark/small/racket/alarm.rkt": ["racket"],
-  "benchmark/small/racket/evidence1.rkt": ["racket"],
-  "benchmark/small/racket/evidence2.rkt": ["racket"],
-  "benchmark/small/racket/grass.rkt": ["racket"],
-  "benchmark/small/racket/murder-mystery.rkt": ["racket"], 
-  "benchmark/small/racket/n-grid.rkt": ["racket"],
-  "benchmark/small/racket/noisy-or.rkt": ["racket"],
-  "benchmark/small/racket/two-coins.rkt": ["racket"]
+  "benchmark/small/racket/alarm.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/small/racket/evidence1.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/small/racket/evidence2.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/small/racket/grass.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/small/racket/murder-mystery.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/small/racket/n-grid.rkt": ["language:racket", "looping"],
+  "benchmark/small/racket/noisy-or.rkt": ["language:racket"],
+  "benchmark/small/racket/two-coins.rkt": ["language:racket", "evidence-observation"]
 }

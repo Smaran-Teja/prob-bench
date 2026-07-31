@@ -17,3 +17,4 @@ tables/
 .vscode
 *.rktd
 *.csv
+site/
