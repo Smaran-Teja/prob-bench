@@ -1,5 +1,4 @@
 #lang roulette/example/disrupt
-(require "../benchmarking.rkt")
 (provide main)
 
 (define cloudy (flip 0.5))
@@ -12,7 +11,7 @@
 (define wet-grass (|| (&& temp2 rain) (&& temp3 sprinkler)))
 (observe! wet-grass)
 
-(define (main) (benchmark rain))
+(define (main) (query rain))
 
 
 (module+ main

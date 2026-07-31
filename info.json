@@ -1,0 +1,10 @@
+{
+  "benchmark/small/racket/alarm.rkt": ["racket"],
+  "benchmark/small/racket/evidence1.rkt": ["racket"],
+  "benchmark/small/racket/evidence2.rkt": ["racket"],
+  "benchmark/small/racket/grass.rkt": ["racket"],
+  "benchmark/small/racket/murder-mystery.rkt": ["racket"], 
+  "benchmark/small/racket/n-grid.rkt": ["racket"],
+  "benchmark/small/racket/noisy-or.rkt": ["racket"],
+  "benchmark/small/racket/two-coins.rkt": ["racket"]
+}

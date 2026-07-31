@@ -1,0 +1,39 @@
+#lang scribble/manual
+@(require json racket/string racket/list scribble/core scribble/html-properties)
+@title{Prob-bench: a language-agnostic benchmarking suite for probabilistic programming languages}
+
+
+@(define info (with-input-from-file "info.json"
+                (lambda () (read-json))))
+
+@(define (all-tags)
+   (sort (remove-duplicates (append-map (lambda (tags) tags) (hash-values info)))
+         string<?))
+
+@(define (raw-elem tag . attrs)
+   (lambda pre-content
+     (element (style #f (list (alt-tag tag) (attributes attrs))) pre-content)))
+
+@(define (tag-checkbox tag)
+   (list ((raw-elem "input" '(type . "checkbox") '(class . "tagfilter") (cons 'data-tag tag)) "")
+         ((raw-elem "label") tag)
+         " "))
+
+@(define (benchmark-item path tags)
+   (define tags-str (string-join tags " "))
+   (item ((raw-elem "span" '(class . "benchmark-item") (cons 'data-tags tags-str))
+          (string-append (path->string path) ": " tags-str))))
+
+@(define (all-benchmarking-paths)
+  (for/list ([path (in-directory "benchmark/small")]
+             #:unless (directory-exists? path))
+    (define tags (hash-ref info (string->symbol (path->string path)) '()))
+    (benchmark-item path tags)))
+
+@bold{Filter by tag:}
+
+@(append-map tag-checkbox (all-tags))
+
+@(apply itemlist (all-benchmarking-paths))
+
+@((raw-elem "script" '(src . "filter.js")) "")

@@ -1,5 +1,4 @@
 #lang roulette/example/disrupt
-(require "../benchmarking.rkt")
 (provide main)
 
 
@@ -14,7 +13,7 @@
 (define n32 (if n2 (flip 0.8) (flip 0.1)))
 (define n3 (|| n31 n32 n33))
 
-(define (main) (benchmark n3))
+(define (main) (query n3))
 
 
 (module+ main

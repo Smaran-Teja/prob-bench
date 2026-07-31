@@ -1,5 +1,4 @@
 #lang roulette/example/disrupt
-(require "../benchmarking.rkt")
 (provide main)
 
 (define (mystery)
@@ -15,7 +14,7 @@
   (observe! obs)
   alice-dunnit)
 
-(define (main) (benchmark (gun-found-at-scene #true)))
+(define (main) (query (gun-found-at-scene #true)))
 
 
 (module+ main
