@@ -2,8 +2,7 @@
 \#*
 .\#*
 .DS_Store
-compiled/
-roulette/site/
+**/compiled/
 doc/
 tables/
 *.swp
@@ -15,9 +14,6 @@ tables/
 *.synctex.gz
 *.bbl
 *.blg
-.DS_Store
 .vscode
 *.rktd
 *.csv
-roulette/benchmark/data
-roulette/benchmark/plots

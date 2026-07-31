@@ -1,1 +1,0 @@
-These benchmarks all use the `max-arg` form and the actual benchmarks are shared for the scaling benchmarks as well, but this info is reported seperately for convenience. These are mostly meant as quick sanity checks to see if performance is generally as expected.
