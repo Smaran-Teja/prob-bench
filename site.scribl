@@ -51,9 +51,10 @@
            (download-link path)))))
 
 @(define (all-benchmarking-paths)
-  (for/list ([path (in-directory "benchmark/small")]
-             #:unless (directory-exists? path))
-    (define tags (hash-ref info (string->symbol (path->string path)) '()))
+  (for/list ([path (in-directory "benchmark")]
+             #:unless (directory-exists? path)
+             #:when (hash-has-key? info (string->symbol (path->string path))))
+    (define tags (hash-ref info (string->symbol (path->string path))))
     (benchmark-item path tags)))
 
 @(list
@@ -61,7 +62,7 @@
   ((raw-elem "div" '(class . "hero"))
    (list ((raw-elem "p" '(class . "eyebrow")) "Roulette Research")
          ((raw-elem "p" '(class . "subtitle"))
-          "A language-agnostic benchmarking suite for probabilistic programming languages.")))
+          "A cross-language benchmarking suite for probabilistic programming languages.")))
   ((raw-elem "div" '(class . "filter-panel"))
    (list ((raw-elem "span" '(class . "filter-label")) "Filter by language")
          ((raw-elem "div" '(class . "chip-row")) (map tag-chip (language-tags)))))

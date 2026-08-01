@@ -1,10 +1,34 @@
 {
-  "benchmark/small/racket/alarm.rkt": ["language:racket", "evidence-observation"],
-  "benchmark/small/racket/evidence1.rkt": ["language:racket", "evidence-observation"],
-  "benchmark/small/racket/evidence2.rkt": ["language:racket", "evidence-observation"],
-  "benchmark/small/racket/grass.rkt": ["language:racket", "evidence-observation"],
-  "benchmark/small/racket/murder-mystery.rkt": ["language:racket", "evidence-observation"],
-  "benchmark/small/racket/n-grid.rkt": ["language:racket", "looping"],
-  "benchmark/small/racket/noisy-or.rkt": ["language:racket"],
-  "benchmark/small/racket/two-coins.rkt": ["language:racket", "evidence-observation"]
+  "benchmark/racket/small/alarm.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/racket/small/evidence1.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/racket/small/evidence2.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/racket/small/grass.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/racket/small/murder-mystery.rkt": ["language:racket", "evidence-observation"],
+  "benchmark/racket/small/noisy-or.rkt": ["language:racket"],
+  "benchmark/racket/small/two-coins.rkt": ["language:racket", "evidence-observation"],
+
+  "benchmark/racket/sandia/2bit-adder.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/jsrflipflop.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/mux2.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_and4.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_and4_tmrg.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_asyn_spram_4x1.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_clock_divider.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_mac_2.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/openfpga_syn_spram_4x1.cql.rkt": ["language:racket", "sandia"],
+  "benchmark/racket/sandia/serial-crc.cql.rkt": ["language:racket", "sandia"],
+
+  "benchmark/racket/scaling/hardware.rkt": ["language:racket", "looping", "scaling"],
+  "benchmark/racket/scaling/n-grid.rkt": ["language:racket", "looping", "scaling"],
+  "benchmark/racket/scaling/network.rkt": ["language:racket", "looping", "scaling"],
+
+  "benchmark/neutral/bayesian-networks/alarm.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/cancer.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/hailfinder.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/hepar2.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/insurance.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/munin.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/pigs.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/survey.bif": ["language:neutral"],
+  "benchmark/neutral/bayesian-networks/water.bif": ["language:neutral"]
 }
