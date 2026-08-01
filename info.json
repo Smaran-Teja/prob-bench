@@ -18,9 +18,9 @@
   "benchmark/racket/sandia/openfpga_syn_spram_4x1.cql.rkt": ["language:racket", "sandia"],
   "benchmark/racket/sandia/serial-crc.cql.rkt": ["language:racket", "sandia"],
 
-  "benchmark/racket/scaling/hardware.rkt": ["language:racket", "looping", "scaling"],
-  "benchmark/racket/scaling/n-grid.rkt": ["language:racket", "looping", "scaling"],
-  "benchmark/racket/scaling/network.rkt": ["language:racket", "looping", "scaling"],
+  "benchmark/racket/scaling/hardware.rkt": ["language:racket", "looping/scaling"],
+  "benchmark/racket/scaling/n-grid.rkt": ["language:racket", "looping/scaling"],
+  "benchmark/racket/scaling/network.rkt": ["language:racket", "looping/scaling"],
 
   "benchmark/neutral/bayesian-networks/alarm.bif": ["language:neutral"],
   "benchmark/neutral/bayesian-networks/cancer.bif": ["language:neutral"],
