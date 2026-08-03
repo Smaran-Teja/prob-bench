@@ -22,13 +22,13 @@
   "benchmark/racket/scaling/n-grid.rkt": ["language:racket", "looping/scaling"],
   "benchmark/racket/scaling/network.rkt": ["language:racket", "looping/scaling"],
 
-  "benchmark/neutral/bayesian-networks/alarm.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/cancer.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/hailfinder.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/hepar2.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/insurance.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/munin.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/pigs.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/survey.bif": ["language:neutral"],
-  "benchmark/neutral/bayesian-networks/water.bif": ["language:neutral"]
+  "benchmark/neutral/bayesian-networks/alarm.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/cancer.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/hailfinder.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/hepar2.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/insurance.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/munin.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/pigs.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/survey.bif": ["language:neutral", "bayesian-networks"],
+  "benchmark/neutral/bayesian-networks/water.bif": ["language:neutral", "bayesian-networks"]
 }

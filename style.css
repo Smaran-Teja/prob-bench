@@ -112,8 +112,15 @@ section.SsectionLevel1 > h1.heading .button-group {
 
 .list-toolbar {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 0.75rem;
+}
+
+.result-count {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .zip-button {
