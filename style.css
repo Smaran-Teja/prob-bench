@@ -181,6 +181,17 @@ ul.benchmark-list li.benchmark-listItem > p {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  margin: -0.2rem -0.4rem;
+  transition: background 0.15s ease;
+}
+
+.benchmark-info:hover,
+.benchmark-info:focus-visible {
+  background: var(--accent-soft);
+  outline: none;
 }
 
 .benchmark-path {
@@ -220,4 +231,83 @@ ul.benchmark-list li.benchmark-listItem > p {
 .benchmark-download:hover {
   background: var(--accent-soft);
   border-color: var(--accent);
+}
+
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(17, 20, 28, 0.55);
+}
+
+.preview-overlay[hidden] {
+  display: none;
+}
+
+.preview-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 46rem;
+  max-height: 80vh;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(17, 20, 28, 0.35);
+  overflow: hidden;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.preview-filename {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.preview-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.preview-close:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.preview-content {
+  margin: 0;
+  padding: 1.1rem;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre;
+}
+
+body.preview-open {
+  overflow: hidden;
 }
